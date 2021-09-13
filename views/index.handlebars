@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/simple-grid.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1>Zandile's Pizza Hut</h1>
+
+    <div class="row">
+        <div class="col-12">
+            <form action="/count" method="post">
+
+                <label for="name">Name of Pizza:</label><br>
+                <input type="text" id="name" name="theNames" class="name-input" value=""><br>
+
+                <div class="counter">
+                    {{counter}}
+                </div>
+                <div class="row">
+
+                <input type="radio" id="" name="pizzas" value="small">
+                <label for="small">Small Pizza</label>
+
+                <input type="radio" id="" name="pizzas" value="medium">
+                <label for="medium">Medium Pizza</label>
+
+                <input type="radio" id="" name="pizzas" value="large">
+                <label for="large">Large Pizza</label>
+            </div>
+                <div class="row">
+
+                <button class="Order" type="submit">Order</button>
+
+            </div>
+
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>

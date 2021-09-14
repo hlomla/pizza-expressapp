@@ -1,0 +1,17 @@
+<div class="row">
+    <h1>Pizzas</h1>
+    
+        <table>
+            <tr>
+                <th>Types</th>
+                <th>Price</th>
+            </tr>
+            {{#each pizza}}
+            <tr>
+                <td>{{type}}</td>
+                <td>{{cost}}</td>
+
+            </tr>
+            {{/each}}
+        </table>
+</div>

@@ -2,48 +2,123 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/simple-grid.css">
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/simple-grid.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <h1>Zandile's Pizza Hut</h1>
+  <h1>Zandile's Pizza Hut</h1>
 
-    <div class="row">
-        <div class="col-12">
-            <form action="/count" method="post">
+  <div class="row">
+    <div class="col-12">
+      {{!-- <form action="/count" method="post"> --}}
 
-                <label for="name">Name of Pizza:</label><br>
-                <input type="text" id="name" name="theNames" class="name-input" value=""><br>
 
-                <div class="counter">
-                    {{counter}}
-                </div>
-                <div class="row">
+        <div class="cart">
+          <h3>Shopping Cart</h3>
 
-                <input type="radio" id="" name="pizzas" value="small">
-                <label for="small">Small Pizza</label>
+          <div class="counter">
+            {{counter}}
+          </div>
+          {{!-- <img src="css/cart-image.png" alt=""> --}}
 
-                <input type="radio" id="" name="pizzas" value="medium">
-                <label for="medium">Medium Pizza</label>
+          <table>
+            <tr>
+              <td><strong>Small Pizzas Total:</strong></td>
+              <td><span class="smallTotalPrice">{{totals.smallTotal}}</span></td>
+            </tr>
 
-                <input type="radio" id="" name="pizzas" value="large">
-                <label for="large">Large Pizza</label>
+            <tr>
+              <td><strong>Medium Pizzas Total:</strong></td>
+              <td><span class="mediumTotalPrice">{{totals.mediumTotal}}</span></td>
+            </tr>
+            <tr>
+              <td><strong>Large Pizzas Total:</strong></td>
+              <td><span class="largeTotalPrice">{{totals.largeTotal}}</span></td>
+            </tr>
+            <tr>
+              <td><strong>Total price:</strong></td>
+              <td><span class="totalPrice">{{totals.totalPizzaCost}}</span></td>
+            </tr>
+          </table>
+      </form>
+
+      <div class="pizzas">
+        <form action="/medium" method="post">
+          <div class="pizza medium">
+            <div class="info">
+              <img src="css/pizza.png" alt="">
+              <h2>Medium Pizza</h2>
+              <strong>R65.00</strong>
+
+              <div>
+                medium margeritha pizza with 3 toppings max.
+                2 or less meat topping.
+                3 or less other toppings.
+              </div>
             </div>
-                <div class="row">
 
-                <button class="Order" type="submit">Order</button>
-
+            <div class="orderBox">
+              <button class="btn orderMediumPizza" value="{{cost.mediumTotal}}" type="submit" name="theMedium"
+                style="margin-left: auto">Order medium pizza</button>
+              <button class="clear" style="margin-left: auto">Clear</button>
             </div>
+          </div>
+        </form>
+      </div>
+      <div class="pizza large">
+        <form action="/large" method="post">
+          <div class="info">
+            <img src="/css/pizza.png" alt="">
+            <h2>Large Pizza</h2>
+            <strong>85.00</strong>
+            <div>
+              large margeritha pizza with 3 toppings max.
+              3 meat toppings max.
+              3 or less other toppings.
+            </div>
+          </div>
+          <div class="orderBox">
+            <button class="btn orderLargePizza" value="{{cost.largeTotal}}" type="submit" name="theLarge"
+              style="margin-left: auto">Order large pizza</button>
+            <button class="clear" style="margin-left: auto">Clear</button>
+          </div>
+        </form>
 
-            </form>
-        </div>
-
+      </div>
+      <div class="pizza small">
+        <form action="/small" method="post">
+          <div class="info">
+            <img src="css/pizza.png" alt="">
+            <h2>Small Pizza</h2>
+            <strong>35.00</strong>
+            <i>
+              <ul>
+                small pizza with 3 toppings
+                1 meat topping.
+                3 or less other toppings.
+              </ul>
+            </i>
+          </div>
+          <div class="orderBox">
+            <button class="btn orderSmallPizza" value="{{cost.smallTotal}}" type="submit" name="theSmall"
+              style="margin-left: auto">Order small pizza</button>
+            <button class="clear" style="margin-left: auto">Clear</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
+
+  {{!--
+  </form> --}}
+  </div>
+
+  </div>
 </body>
 
 </html>
